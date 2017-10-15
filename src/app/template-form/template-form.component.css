@@ -1,0 +1,12 @@
+input.form-control.ng-dirty.ng-invalid.ng-touched{
+  border: 2px solid red;
+}
+input.form-control.ng-dirty.ng-valid.ng-touched{
+  border: 2px solid green;
+}
+select.form-control.ng-invalid.ng-touched{
+  border: 2px solid red;
+}
+select.form-control.ng-dirty.ng-valid.ng-touched{
+  border: 2px solid green;
+}

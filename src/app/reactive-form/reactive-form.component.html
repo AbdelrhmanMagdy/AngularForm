@@ -1,0 +1,70 @@
+<div class="container">
+  <h2 class="text-center text-danger">Angular reactive form with fully validations</h2>
+
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+
+    <div class="form-group">
+      <label>First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="First Name"
+        name="firstname"
+        ngModel
+        #firstname= "ngModel"
+
+      >
+    </div>
+
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Last Name"
+        name="lastname"
+        ngModel
+        #lastname= "ngModel"
+      >
+    </div>
+
+
+
+    <div class="form-group">
+      <label>Email</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Email"
+        name="email"
+        ngModel
+        #email= "ngModel"
+
+      >
+    </div>
+
+
+    <div class="form-group">
+      <label>Mobile</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Mobile"
+        name="mobile"
+        ngModel
+        #mobile= "ngModel"
+      >
+    </div>
+
+    <div class="form-group">
+      <input
+        type="submit"
+        class="form-control text-primary"
+      >
+    </div>
+
+
+  </form>
+</div>

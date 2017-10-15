@@ -1,0 +1,134 @@
+<div class="container">
+  <h2 class="text-center text-danger">Angular template-driven form with fully validations</h2>
+
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+<!-- if i want to validate group of field we can use ngGroupModel  -->
+<!-- if i want to validate all the form fields we can use ngForm -->
+    <div class="form-group">
+      <label>First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="First Name"
+        name="firstname"
+        ngModel
+        #firstname= "ngModel"
+        required
+        minlength="5"
+        maxlength="10"
+      >
+    </div>
+    <div class="alert alert-danger"
+    *ngIf="!firstname.valid && firstname.touched ">
+      <div *ngIf="firstname.errors.required">first name must be filled</div>
+      <div *ngIf="firstname.errors.minlength">first name must be within 3-10 charachters</div>
+      <div *ngIf="firstname.errors.maxlength">first name must be within 3-10 charachters</div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Last Name"
+        name="lastname"
+        ngModel
+        #lastname= "ngModel"
+        required
+        minlength="5"
+        maxlength="10"
+      >
+    </div>
+    <div
+    class="alert alert-danger"
+    *ngIf="!lastname.valid && lastname.touched ">
+      <div *ngIf="lastname.errors.required">Last name must be filled</div>
+      <div *ngIf="lastname.errors.minlength">Last name must be within 3-10 charachters</div>
+      <div *ngIf="lastname.errors.maxlength">Last name must be within 3-10 charachters</div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Email</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Email"
+        name="email"
+        ngModel
+        #email= "ngModel"
+        required
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+      >
+    </div>
+    <div
+    class="alert alert-danger"
+    *ngIf="!email.valid && email.touched ">
+      <div *ngIf="email.errors.required">Email must be filled</div>
+      <div *ngIf="email.errors.pattern">Email not valid</div>
+    </div>
+
+
+    <div class="form-group">
+      <label>Mobile</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Mobile"
+        name="mobile"
+        ngModel
+        #mobile= "ngModel"
+        required
+        pattern="^\d+$"
+        minlength="11"
+      >
+    </div>
+    <div
+    class="alert alert-danger"
+    *ngIf="!mobile.valid && mobile.touched ">
+      <div *ngIf="mobile.errors.required">mobile must be filled</div>
+      <div *ngIf="mobile.errors.pattern">mobile not valid</div>
+      <div *ngIf="mobile.errors.minlength">mobile must be more 11 number</div>
+    </div>
+
+
+  <div class="btn-group" data-toggle="buttons">
+    <label for="male">
+      <input type="radio" name="male" ngModel> Male  <br>
+    </label>
+    <label for="female">
+      <input type="radio" name="female" ngModel> Female
+    </label>
+  </div>
+
+
+
+    <div class="form-group">
+      <label for="contact">Graduation year</label>
+      <select name="gradyear" ngModel class="form-control" required>
+        <option>2018</option>
+        <option>2019</option>
+        <option>2020</option>
+        <option>2021</option>
+      </select>
+    </div>
+
+<div class="checkbox">
+  <label>
+    <input type="checkbox" name="checkbox" ngModel> Subscribe email
+  </label>
+</div>
+
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-secondary-outline "
+        [disabled]="!f.valid"
+      >Submit</button>
+    </div>
+
+
+  </form>
+</div>
